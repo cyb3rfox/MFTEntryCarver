@@ -210,7 +210,7 @@ def parse_entry (start_offset,mm):
         stdinfo = [0,"corrupt","corrupt","corrupt","corrupt"]
 
     try:
-        print '{},{},{},{},{},{},{},{},{},{}'.format(fname[1],stdinfo[1],stdinfo[2],stdinfo[3],stdinfo[4],fname[2],fname[3],fname[4],fname[5],data)
+        print '{};{};{};{};{};{};{};{};{};{}'.format(fname[1],stdinfo[1],stdinfo[2],stdinfo[3],stdinfo[4],fname[2],fname[3],fname[4],fname[5],data)
     except: pass
 
     return 0
@@ -238,7 +238,7 @@ def load_and_start(filename, showstats):
             parsed = 0
             no_type = 0
 
-            print "filename,STD created, STD modified, STD Meta modified, STD accessed,FN created, FN modified, FN Meta modified, FN accessed"
+            print "filenames;STD created;STD modified;STD Meta modified;STD accessed;FN created;FN modified;FN Meta modified;FN accessed"
 
             while 1:
 
