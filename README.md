@@ -1,6 +1,6 @@
 # MFTEntryCarver
 Carve files for MFT entries (eg. blkls output or memory dumps). Recovers filenames (long &amp; short), timestamps ($STD &amp; $FN) and data if resident. It will also parse half broken entries as long as at least one $FN entry is ok.
-There is a mored detailed description of how and why I wrote that and how you can use it. I'm not really a developer but just an DFIR guy. So please excuse the spaghetti code.
+There is a more detailed description of how and why I wrote that and how you can use it on my blog (https://www.cyberfox.blog/carving-mft-mftentrycarver-py/). I'm not really a developer but just an DFIR guy. So please excuse the spaghetti code.
 
 ## MFT
 NTFS stores it's metadata in the $MFT file which references itself in MFT record number 0. MFT records are well defined as described here (http://www.cse.scu.edu/~tschwarz/coen252_07Fall/Lectures/NTFS.html)
