@@ -8,7 +8,30 @@ Obviously it's growing over time. When one deletes a file, corresponding entry w
 However experimenting a little bit with unallocated space on a test Windows 7 system image showed, that scanning for NTFS Entry headers (FILE) showed over 50.000 results in a 8Gb junk of unallocated space.
 I don't really know how those entries end up there but I guess it's a combination of various causes. Some of them might be comming when parts of memory are ending uop on the drive in files like crashdumps and then the files are being deleted.
 
-#How to get unallocated space
+## How to get unallocated space
 I used Sleuthkit's blkls to get the unallocated blocks of an image. 
+
+## License
+This code is distributed under MIT License
+
+Copyright (c) 2018 Mathias Fuchs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
