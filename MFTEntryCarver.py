@@ -87,17 +87,17 @@ def parseFN(mftentry):
     if len(names) == 0: return return_code;
 
     # timestamps are supposed to be the same for all fn attributes
-    creation_time_bytes =  mftentry[file_entry_offset + 32 : file_entry_offset + 40]
+    creation_time_bytes =  mftentry[last_attribute_pointer + 32 : last_attribute_pointer + 40]
     creation_time = parseTimestamp(creation_time_bytes)
 
-    modification_time_bytes = mftentry[file_entry_offset + 40: file_entry_offset + 48]
-    modification_time = parseTimestamp(creation_time_bytes)
+    modification_time_bytes = mftentry[last_attribute_pointer + 40: last_attribute_pointer + 48]
+    modification_time = parseTimestamp(modification_time_bytes)
 
-    metachange_time_bytes = mftentry[file_entry_offset + 48: file_entry_offset + 56]
-    metachange_time = parseTimestamp(creation_time_bytes)
+    metachange_time_bytes = mftentry[last_attribute_pointer + 48: last_attribute_pointer + 56]
+    metachange_time = parseTimestamp(metachange_time_bytes)
 
-    access_time_bytes = mftentry[file_entry_offset + 56: file_entry_offset + 64]
-    access_time = parseTimestamp(creation_time_bytes)
+    access_time_bytes = mftentry[last_attribute_pointer + 56: last_attribute_pointer + 64]
+    access_time = parseTimestamp(access_time_bytes)
 
 
     return 0, names, creation_time,modification_time,metachange_time,access_time
@@ -141,10 +141,10 @@ def parseData(mftentry):
 
 def parseSTDInfo(mftentry):
 
-    # locate header for File_Name attribute
+    # locate header for STD_Info attribute
     std_entry_offset = mftentry.find("\x10\x00\x00\x00")
 
-    # if there is no FN return and proceed. Seems to be a broken entry
+    # if there is no STD_Info return and proceed. Seems to be a broken entry
     if std_entry_offset == -1: return -31;
 
     # calculate some offsets to check plausibility
@@ -169,13 +169,13 @@ def parseSTDInfo(mftentry):
     creation_time = parseTimestamp(creation_time_bytes)
 
     modification_time_bytes = mftentry[std_entry_offset + 32: std_entry_offset + 40]
-    modification_time = parseTimestamp(creation_time_bytes)
+    modification_time = parseTimestamp(modification_time_bytes)
 
     metachange_time_bytes = mftentry[std_entry_offset + 40: std_entry_offset + 48]
-    metachange_time = parseTimestamp(creation_time_bytes)
+    metachange_time = parseTimestamp(metachange_time_bytes)
 
-    access_time_bytes = mftentry[std_entry_offset + 48: std_entry_offset + 66]
-    access_time = parseTimestamp(creation_time_bytes)
+    access_time_bytes = mftentry[std_entry_offset + 48: std_entry_offset + 56]
+    access_time = parseTimestamp(access_time_bytes)
 
 
 
